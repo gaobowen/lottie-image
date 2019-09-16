@@ -1,0 +1,30 @@
+{
+  "name": "lottie-image",
+  "version": "1.0.0",
+  "description": "convert lottie to image",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaobowen/lottie-image.git"
+  },
+  "keywords": [
+    "lottie",
+    "gif",
+    "apng",
+    "png",
+    "jpeg",
+    "image"
+  ],
+  "author": "gaobowen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gaobowen/lottie-image/issues"
+  },
+  "homepage": "https://github.com/gaobowen/lottie-image#readme",
+  "dependencies": {
+    "puppeteer-core": "^1.19.0"
+  }
+}
