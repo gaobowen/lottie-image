@@ -1,6 +1,6 @@
 {
   "name": "lottie-image",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "convert lottie to image",
   "main": "index.js",
   "scripts": {

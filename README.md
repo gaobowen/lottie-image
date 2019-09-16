@@ -40,8 +40,8 @@ var cvter = new LottieConverter({
 - Use Json Object
 ```
 (async () => {
-    await cvter.saveAs({
-        lottieData:lottieJsonObject,
+    await cvter.dataSaveAs({
+        lottieData:lottieJsonObjectData,
         outputPath:'/Users/gaobowen/Downloads/test2/lottie.gif'//replace with your output file path
     })
 })()
