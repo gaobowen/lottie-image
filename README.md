@@ -20,20 +20,25 @@ npm install lottie-image --save
 ```
 
 ## Usage
+- Create Converter
 ```js
 var LottieConverter = require('lottie-image');
 var cvter = new LottieConverter({
     chromePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',//replace with your chrome path
     ffmpegPath: '/Users/gaobowen/Downloads/test2/ffmpeg' //replace with your ffmpeg path
 });
-
+```
+- Use File Path
+```js
 (async () => {
     await cvter.saveAs({
         lottiePath:'/Users/gaobowen/Downloads/test2/lottie.json',//replace with your lottie file path
         outputPath:'/Users/gaobowen/Downloads/test2/lottie.gif'//replace with your output file path
     })
 })()
-
+```
+- Use Json Object
+```
 (async () => {
     await cvter.saveAs({
         lottieData:lottieJsonObject,
