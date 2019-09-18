@@ -1,5 +1,5 @@
 # lottie-image
-keywords: lottie, png, apng, gif, lottie to gif, lottie to png, lottie to apng
+keywords: lottie, png, apng, gif, lottie to gif, lottie to png, lottie to apng, svg, svg to image
 > Renders [Lottie](http://airbnb.io/lottie) animations to **image**, **GIF**, **APNG**. Support only APNG and GIF for now, more formats will be added later.
 
 ## Install
@@ -22,27 +22,43 @@ npm install lottie-image --save
 ## Usage
 - Create Converter
 ```js
-var LottieConverter = require('lottie-image');
+var { LottieConverter, SvgConverter } = require('lottie-image');
+
 var cvter = new LottieConverter({
-    chromePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',//replace with your chrome path
-    ffmpegPath: '/Users/gaobowen/Downloads/test2/ffmpeg' //replace with your ffmpeg path
+    chromePath: 'replace with your own chrome path',//
+    ffmpegPath: 'replace with your ffmpeg path' //
+});
+
+var svgcvter = new SvgConverter({
+    chromePath : 'replace with your own chrome path'
 });
 ```
 - Use File Path
 ```js
-(async () => {
+;(async () => {
     await cvter.saveAs({
-        lottiePath:'/Users/gaobowen/Downloads/test2/lottie.json',//replace with your lottie file path
-        outputPath:'/Users/gaobowen/Downloads/test2/lottie.gif'//replace with your output file path
+        lottiePath:'/replace with your lottie file path',//
+        outputPath:'/replace with your output file path'//
     })
 })()
 ```
 - Use Json Object
-```
-(async () => {
+```js
+;(async () => {
     await cvter.dataSaveAs({
         lottieData:lottieJsonObjectData,
-        outputPath:'/Users/gaobowen/Downloads/test2/lottie.gif'//replace with your output file path
+        outputPath:'replace with your output file path'//
+    })
+})()
+```
+- svg to image
+```js
+;(async () => {
+    await svgcvter.svgSaveAs({
+        filePath:'replace with your input file path',
+        outputPath:'replace with your output file path',
+        width:'1920',
+        height:'1080'
     })
 })()
 ```

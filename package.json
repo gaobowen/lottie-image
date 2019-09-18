@@ -1,7 +1,7 @@
 {
   "name": "lottie-image",
-  "version": "1.0.1",
-  "description": "convert lottie to image",
+  "version": "1.1.0",
+  "description": "lottie to image, svg to image",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +16,8 @@
     "apng",
     "png",
     "jpeg",
-    "image"
+    "image",
+    "svg"
   ],
   "author": "gaobowen",
   "license": "MIT",

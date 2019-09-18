@@ -2,6 +2,8 @@ const puppeteer = require('puppeteer-core');
 const path = require('path');
 const fs = require('fs');
 const cp = require('child_process');
+const {SvgConverter} = require('./lib/svg_converter');
+let browser = require('./lib/share_object').browser;
 
 const lottieScript = fs.readFileSync(path.join(__dirname, 'lib', 'lottie_html.min.js'), 'utf8')
 const injectLottie = `
@@ -34,18 +36,20 @@ function checkLottieData(lottieData) {
     }
 }
 
-var browser = {};
+if (browser === undefined) {
+    browser = {};
+}
 
 /** 
  * convert lottie to image
  * @name LottieConverter
- * @function
+ * @class
  * 
  * @param {object} opts - options
  * @param {string} opts.chromePath - chrome path
  * @param {string} opts.ffmpegPath - ffmpeg path
 */
-module.exports = function LottieConverter(opts) {
+ function LottieConverter(opts) {
     const { chromePath, ffmpegPath } = opts;
     if (!fs.existsSync(chromePath)) {
         throw new Error(`chromePath:'${chromePath}' not exist.`)
@@ -58,6 +62,7 @@ module.exports = function LottieConverter(opts) {
     this.ffmpegPath = ffmpegPath;
     this.saveAs = saveAs;
     this.dataSaveAs = dataSaveAs;
+    this.svgSaveAs = svgSaveAs;
 
     /**
      * save lottie file as image
@@ -77,7 +82,7 @@ module.exports = function LottieConverter(opts) {
     }
 
     /**
-     * save lottie data as image
+     * save lottie data object as image
      * @param {object} args
      * @param {object} args.lottieData - lottie data object
      * @param {string} args.outputPath - output file path
@@ -168,14 +173,14 @@ module.exports = function LottieConverter(opts) {
             cproc.stdin.write(Buffer.from('\n', 'base64'));
         }
         cproc.stdin.end();
-        await new Promise((resolve, reject) => {
+        let result = await new Promise((resolve, reject) => {
             let count = 0;
             let to = {};
             to = setInterval(() => {
                 if (fs.existsSync(outputPath)) {
                     clearInterval(to);
                     //console.log(lottie Convert successed)
-                    resolve();
+                    resolve(outputPath);
                 }
                 count++;
                 if (count > outp * 5) {
@@ -185,5 +190,58 @@ module.exports = function LottieConverter(opts) {
             }, 100);
         });
         page.close();
+        return result;
+    }
+
+    /**
+     * save svg file as image
+     * @param {object} args 
+     * @param {string} args.filePath - svg file path
+     * @param {string} args.outputPath - output path
+     * @param {int} args.width - output width
+     * @param {int} args.height - output height
+     */
+    async function svgSaveAs(args) {
+        if (browser.newPage === undefined) {
+            browser = await puppeteer.launch({
+                executablePath: chromePath,
+                args: ['--no-sandbox', '--disable-setuid-sandbox']
+            });
+        }
+        let width = parseInt(args.width);
+        let height = parseInt(args.height);
+
+        const page = await browser.newPage();
+        page.setCacheEnabled(false);
+        page.setViewport({ width, height });
+
+        page.on('error', err => {
+            page.close();
+        });
+
+        page.on('pageerror', err => {
+            page.close();
+        });
+        let url = args.filePath;
+        if (!url.startsWith('file:///')) {
+            url = 'file:///' + url;
+        }
+        await page.goto(url, { waitUntil: 'load', timeout: 0 });
+        let svghd = await page.evaluateHandle(() => { return document.getElementsByTagName("svg")[0] });        
+        await page.evaluateHandle((svghd) => {
+            svghd.setAttribute("style", "width:100%; height:100%;");
+        }, svghd);
+
+        await page.screenshot({ path: args.outputPath });
+        page.close();
+        if (fs.existsSync(args.outputPath)) {
+            return args.outputPath;
+        }
+        return '';
     }
 };
+
+module.exports ={
+    LottieConverter : LottieConverter,
+    SvgConverter : SvgConverter,
+}
