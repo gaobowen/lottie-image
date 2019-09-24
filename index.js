@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer-core');
 const path = require('path');
 const fs = require('fs');
 const cp = require('child_process');
-const {SvgConverter} = require('./lib/svg_converter');
+const { SvgConverter } = require('./lib/svg_converter');
 let browser = require('./lib/share_object').browser;
 
 const lottieScript = fs.readFileSync(path.join(__dirname, 'lib', 'lottie_html.min.js'), 'utf8')
@@ -49,7 +49,7 @@ if (browser === undefined) {
  * @param {string} opts.chromePath - chrome path
  * @param {string} opts.ffmpegPath - ffmpeg path
 */
- function LottieConverter(opts) {
+function LottieConverter(opts) {
     const { chromePath, ffmpegPath } = opts;
     if (!fs.existsSync(chromePath)) {
         throw new Error(`chromePath:'${chromePath}' not exist.`)
@@ -106,7 +106,7 @@ if (browser === undefined) {
         height = height - (height % 2);
         let page = await browser.newPage();
         page.setCacheEnabled(false);
-        page.setViewport({ width, height });
+        page.setViewport({ width: width, height: height });
         page.on('error', err => {
             console.log(err);
             page.close();
@@ -227,7 +227,7 @@ if (browser === undefined) {
             url = 'file:///' + url;
         }
         await page.goto(url, { waitUntil: 'load', timeout: 0 });
-        let svghd = await page.evaluateHandle(() => { return document.getElementsByTagName("svg")[0] });        
+        let svghd = await page.evaluateHandle(() => { return document.getElementsByTagName("svg")[0] });
         await page.evaluateHandle((svghd) => {
             svghd.setAttribute("style", "width:100%; height:100%;");
         }, svghd);
@@ -241,7 +241,7 @@ if (browser === undefined) {
     }
 };
 
-module.exports ={
-    LottieConverter : LottieConverter,
-    SvgConverter : SvgConverter,
+module.exports = {
+    LottieConverter: LottieConverter,
+    SvgConverter: SvgConverter,
 }
