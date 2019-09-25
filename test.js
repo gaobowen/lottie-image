@@ -1,12 +1,12 @@
 var { LottieConverter, SvgConverter } = require('./index');
 
-var lticvter = new LottieConverter({
-    chromePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-    ffmpegPath: '/Users/gaobowen/Downloads/test2/ffmpeg'
-});
-var svgcvter = new SvgConverter({
-    chromePath : '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
-});
+// var lticvter = new LottieConverter({
+//     chromePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+//     ffmpegPath: '/Users/gaobowen/Downloads/test2/ffmpeg'
+// });
+// var svgcvter = new SvgConverter({
+//     chromePath : '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+// });
 //console.log(lticvter);
 //console.log(svgcvter);
 ;(async () => {
@@ -20,5 +20,6 @@ var svgcvter = new SvgConverter({
     //     width:'1920',
     //     height:'1080'
     // })
+    return Promise.resolve();
 })()
 
