@@ -1,15 +1,15 @@
 var { LottieConverter, SvgConverter } = require('./index');
 
-// var lticvter = new LottieConverter({
-//     chromePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-//     ffmpegPath: '/Users/gaobowen/Downloads/test2/ffmpeg'
-// });
-// var svgcvter = new SvgConverter({
-//     chromePath : '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
-// });
-//console.log(lticvter);
-//console.log(svgcvter);
-;(async () => {
+; (async () => {
+    // var lticvter = new LottieConverter({
+    //     chromePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+    //     ffmpegPath: '/Users/gaobowen/Downloads/test2/ffmpeg'
+    // });
+    // var svgcvter = new SvgConverter({
+    //     chromePath : '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+    // });
+    //console.log(lticvter);
+    //console.log(svgcvter);
     // await cvter.saveAs({
     //     lottiePath:'/Users/gaobowen/Downloads/test2/lottie.json',
     //     outputPath:'/Users/gaobowen/Downloads/test2/lottie.gif'

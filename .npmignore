@@ -1,2 +1,3 @@
-test
-.github
+test/
+.github/
+test.js

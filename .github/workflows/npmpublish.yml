@@ -44,4 +44,4 @@ jobs:
           scope: 'gaobowen'
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.lottie_image_token}}
