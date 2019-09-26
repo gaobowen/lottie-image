@@ -42,6 +42,6 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: 'gaobowen'
-      - run: npm publish --registry=https://npm.pkg.github.com/
+      - run: npm publish --registry=https://npm.pkg.github.com/gaobowen
         env:
           NODE_AUTH_TOKEN: ${{secrets.lottie_image_token}}
