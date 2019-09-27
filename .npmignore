@@ -1,3 +1,5 @@
 test/
 .github/
 test.js
+.eslintrc.js
+.eslintignore

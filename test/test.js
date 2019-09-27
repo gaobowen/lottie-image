@@ -24,10 +24,11 @@ describe('module export test', function () {
 //         chromePath : '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 //     });
 
-//     await lticvter.saveAs({
+//     var returl = await lticvter.saveAs({
 //         lottiePath:'/Users/gaobowen/Downloads/test2/lottie2.json',
 //         outputPath:'/Users/gaobowen/Downloads/test2/lottie2.gif'
 //     })
+//     // console.log(returl);
 //     // await svgcvter.svgSaveAs({
 //     //     filePath:'/Users/gaobowen/Downloads/222.svg',
 //     //     outputPath:'/Users/gaobowen/Downloads/222.png',
