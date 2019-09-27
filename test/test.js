@@ -1,3 +1,4 @@
+
 var { LottieConverter, SvgConverter } = require('../index');
 var expect = require('chai').expect;
 
@@ -14,20 +15,19 @@ describe('module export test', function () {
 });
 
 
-// ; (async () => {
-//     // var lticvter = new LottieConverter({
-//     //     chromePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-//     //     ffmpegPath: '/Users/gaobowen/Downloads/test2/ffmpeg'
-//     // });
-//     // var svgcvter = new SvgConverter({
-//     //     chromePath : '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
-//     // });
-//     //console.log(lticvter);
-//     //console.log(svgcvter);
-//     // await cvter.saveAs({
-//     //     lottiePath:'/Users/gaobowen/Downloads/test2/lottie.json',
-//     //     outputPath:'/Users/gaobowen/Downloads/test2/lottie.gif'
-//     // })
+// (async () => {
+//     var lticvter = new LottieConverter({
+//         chromePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+//         ffmpegPath: '/Users/gaobowen/Downloads/test2/ffmpeg'
+//     });
+//     var svgcvter = new SvgConverter({
+//         chromePath : '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+//     });
+
+//     await lticvter.saveAs({
+//         lottiePath:'/Users/gaobowen/Downloads/test2/lottie2.json',
+//         outputPath:'/Users/gaobowen/Downloads/test2/lottie2.gif'
+//     })
 //     // await svgcvter.svgSaveAs({
 //     //     filePath:'/Users/gaobowen/Downloads/222.svg',
 //     //     outputPath:'/Users/gaobowen/Downloads/222.png',
