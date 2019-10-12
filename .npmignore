@@ -1,5 +1,6 @@
 test/
 .github/
+readme_src
 test.js
 .eslintrc.js
 .eslintignore

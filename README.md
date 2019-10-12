@@ -61,5 +61,25 @@ var svgcvter = new SvgConverter({
         height:'1080'
     })
 })()
+```  
+- svg clip image
+```js
+await svgcvter.svgSaveAs({
+        filePath: __dirname + '/test_clip.svg', //replace with your input file path
+        outputPath: __dirname + '/test_clip.png', //replace with your input file path
+        width: '254.6',
+        height: '254.6',
+        cilpData: {
+            clipid: 'lhImageFrame',
+            imgPath:  __dirname + '/test.jpg', //replace with your input file path
+            imgw: 200.02066773076928,
+            imgh: 132.01364070230773,
+            imgx: 46.799999237060575,
+            imgy: 66.7150068664551,
+            imgr: 29.200863558049512
+        }
+    })
 ```
+output image:  
+![](test/test_clip.png)
 
