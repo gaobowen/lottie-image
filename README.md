@@ -69,7 +69,7 @@ await svgcvter.svgSaveAs({
         outputPath: __dirname + '/test_clip.png', //replace with your input file path
         width: '254.6',
         height: '254.6',
-        cilpData: {
+        clipData: {
             clipid: 'lhImageFrame',
             imgPath:  __dirname + '/test.jpg', //replace with your input file path
             imgw: 200.02066773076928,
