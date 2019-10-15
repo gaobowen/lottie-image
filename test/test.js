@@ -42,7 +42,7 @@ describe('module export test', function () {
     //     outputPath: __dirname + '/test_clip.png',
     //     width: '254.6',
     //     height: '254.6',
-    //     cilpData: {
+    //     clipData: {
     //         clipid: 'lhImageFrame',
     //         imgPath:  __dirname + '/test.jpg',
     //         imgw: 200.02066773076928,
