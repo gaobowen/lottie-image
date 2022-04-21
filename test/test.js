@@ -27,7 +27,8 @@ var expect = require('chai').expect;
 
     var returl = await lticvter.saveAs({
         lottiePath:'D:\\github\\lottie-image\\test\\lottie2.json',
-        outputPath:'D:/github/lottie-image/test/test.apng'
+        outputPath:'D:/github/lottie-image/test/test.apng',
+        scale: 2
     })
     console.log(returl);
 
