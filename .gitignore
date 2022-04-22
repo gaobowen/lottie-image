@@ -1,3 +1,6 @@
+test/*.apng
+test/*.gif
+
 # Logs
 logs
 *.log
